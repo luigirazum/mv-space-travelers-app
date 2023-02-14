@@ -1,18 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import AppTitle from '../AppTitle/AppTitle';
 import NavBar from '../NavBar/NavBar';
-import './Header.css';
 
 const Header = () => (
   <>
     <header>
+      <AppTitle />
       <NavBar />
-      <NavLink
-        to="myprofile"
-        className="navlink"
-      >
-        My profile
-      </NavLink>
     </header>
   </>
 );

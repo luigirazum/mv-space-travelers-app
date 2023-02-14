@@ -1,9 +1,0 @@
-.navlink {
-  color: var(--color-link);
-  font-weight: bold;
-}
-
-.navlink.active {
-  color: var(--color-link-active);
-  text-decoration: underline;
-}
