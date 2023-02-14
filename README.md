@@ -2,11 +2,11 @@
 
 <div align="center">
 
-  <img src="./public/logo_planet.png" alt="logo" width="100" height="auto" />
+  <img src="./src/assets/imgs/logo/logo_planet.png" alt="logo" width="100" height="auto" />
   <br/>
 
-### Space Traveler's Hub
-<b>Space Traveler's Hub</b> is a Web Application for a company that provides commercial and scientific space travel services.<br>The application allows users to:<br> 1) Book rockets and, <br> 2) Join to selected space missions.<br>
+### Space Travelers' Hub
+<b>Space Travelers' Hub</b> is a Web Application for a company that provides commercial and scientific space travel services.<br>The application allows users to:<br> 1) Book rockets and, <br> 2) Join to selected space missions.<br>
 <sub><b>SpaceX API</b> is used to get real live data for rockets and space missions.</sub>
 
 </div>
@@ -14,7 +14,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [🚀 Space Traveler's Hub ](#-space-travelers-hub-)
+- [🚀 Space Travelers' Hub ](#-space-travelers-hub-)
     - [Preview of Space Traveler's Hub App.](#preview-of-space-travelers-hub-app)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
@@ -29,9 +29,9 @@
   - [⭐ Show your support ](#-show-your-support-)
   - [📝 License ](#-license-)
 
-# 🚀 Space Traveler's Hub <a name="about-project"></a>
+# 🚀 Space Travelers' Hub <a name="about-project"></a>
 
-*Space Traveler's Hub* is a Web Application for a company that provides commercial and scientific space travel services.<br>The application allows users to:
+*Space Travelers' Hub* is a Web Application for a company that provides commercial and scientific space travel services.<br>The application allows users to:
 1) Book rockets and,
 2) Join to selected space missions.
 
@@ -53,8 +53,8 @@
 
 </div>
 
-## 🛠 Built With <a name="built-with"></a>
 
+## 🛠 Built With <a name="built-with"></a>
 ### Tech Stack <a name="tech-stack"></a>
 This project was bootstrapped with:
   <ul>
@@ -71,7 +71,7 @@ This project was bootstrapped with:
 
 ### Key Features <a name="key-features"></a>
 
-- *Single Page App (SPA), with two Pages Rockets(home), MyProfile.*
+- *Single Page App (SPA), with two Pages Rockets(home), Missions, and MyProfile.*
 - *Lists Rockets that are avaliable.*
 - *Allows users to create or cancel a rocket reservation.*
 - *MyProfile page, shows current status of user's revervations.*

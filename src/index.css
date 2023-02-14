@@ -1,9 +1,31 @@
-/* Global css rules */
+/* Global variables */
+:root {
+  /* Colors */
+  --color-link-active: #f66f1c;
+  --color-link-active-rgb: rgb(246, 111, 28);
+  --color-link-active-hsl: hsl(23, 92%, 54%);
+  --color-link: #1d1d1d;
+  --color-link-rgb: rgb(61, 61, 61);
+  --color-link-hsl: hsl(0, 0%, 24%);
+}
 
-*,
-*::after,
-*::before {
+/* Resets */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
