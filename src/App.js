@@ -1,13 +1,14 @@
+import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
+import Header from './components/Header/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <h1>Space Traveler&apos;s Hub</h1>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Header />
+    <main>
+      <p>Content here.</p>
+    </main>
+  </BrowserRouter>
+);
 
 export default App;
