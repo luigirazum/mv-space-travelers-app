@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import NotFound from './pages/NotFound';
 import MyProfile from './pages/MyProfile';
+import Missions from './pages/Missions';
 import Rockets from './pages/Rockets';
 
 const App = () => (
@@ -11,6 +12,7 @@ const App = () => (
     <main>
       <Routes>
         <Route index element={<Rockets />} />
+        <Route caseSensitive path="missions" element={<Missions />} />
         <Route caseSensitive path="myprofile" element={<MyProfile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
