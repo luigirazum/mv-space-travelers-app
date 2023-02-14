@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import request from '../api/apiSettings';
+import { createSlice } from '@reduxjs/toolkit';
+import asyncFetch, { GET_ROCKETS } from '../api/apiSettings';
 
 /**
  * action types for ROCKETS
@@ -10,17 +10,10 @@ const FETCH_ROCKETS = `${PREFIX}/FETCH_ROCKETS`;
 /**
  * get the Rockets available from the API
  */
-const fetchRockets = createAsyncThunk(
-  FETCH_ROCKETS,
-  async () => {
-    const response = await
-    fetch(request('GET_ROCKETS'));
-    return response.json();
-  },
-);
+const fetchRockets = asyncFetch(FETCH_ROCKETS, GET_ROCKETS);
 
 const initialState = {
-  rockets: [],
+  inventory: [],
   loading: false,
   error: null,
 };
@@ -46,9 +39,17 @@ const rocketsSlice = createSlice({
         fetchRockets.fulfilled,
         (state, action) => {
           const { payload } = action;
+          const selectData = payload.map((rocket) => {
+            const {
+              id, name, type, flickr_images: images,
+            } = rocket;
+            return {
+              id, name, type, images,
+            };
+          });
           return {
             ...state,
-            rockets: payload,
+            inventory: selectData,
             loading: false,
           };
         },
