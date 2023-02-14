@@ -1,3 +1,5 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 const BASE_URL = 'https://api.spacexdata.com';
 
 // entry points
@@ -9,6 +11,9 @@ const entryPoints = {
 
 // headers
 const headersList = { 'Content-Type': 'application/json' };
+
+// request types
+const GET_ROCKETS = 'GET_ROCKETS';
 
 // create the request
 const request = (request) => {
@@ -30,4 +35,17 @@ const request = (request) => {
   }
 };
 
-export default request;
+const asyncFetch = (
+  actionType,
+  fetchRequest,
+) => createAsyncThunk(
+  actionType,
+  async () => {
+    const response = await
+    fetch(request(fetchRequest));
+    return response.json();
+  },
+);
+
+export { GET_ROCKETS };
+export default asyncFetch;
