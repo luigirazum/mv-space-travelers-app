@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import stateReducer from '../status/statusSlice';
+import thunk from 'redux-thunk';
+import rocketsReducer from '../rockets/rockets';
 
 const store = configureStore({
   reducer: {
-    status: stateReducer,
+    rockets: rocketsReducer,
+    middleware: [thunk],
   },
 });
 
