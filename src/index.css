@@ -1,5 +1,34 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap');
+
 /* Global variables */
 :root {
+  /* Fonts */
+
+  /* font family */
+  --ff-notoSans: 'Noto Sans', sans-serif;
+
+  /* font-weight */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* font-size */
+  --fs-normal: 1rem;
+  --fs-medium: calc(1.1 * var(--fs-normal));
+  --fs-title: calc(1.35 * var(--fs-normal));
+  --fs-super: calc(1.8 * var(--fs-normal));
+
   /* Colors */
   --color-link-active: #f66f1c;
   --color-link-active-rgb: rgb(246, 111, 28);
@@ -7,25 +36,55 @@
   --color-link: #1d1d1d;
   --color-link-rgb: rgb(61, 61, 61);
   --color-link-hsl: hsl(0, 0%, 24%);
+  --color-navlink: #02bab7;
+  --color-navlink-rgb: rgb(2, 186, 183);
+  --color-navlink-hsl: hsl(179, 100%, 30%);
+  --color-navTitle-hsl: hsl(195, 100%, 10%);
+  --color-header-hsl: hsl(0, 0%, 90%);
+  --color-hoverRocket-hsl: hsl(0, 0%, 96%);
+
+  /* borders */
+  --border-navBar: 2px solid var(--color-navTitle-hsl);
+  --border-header: 2px solid var(--color-header-hsl);
 }
 
 /* Resets */
+body {
+  font-family: var(--ff-notoSans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-normal);
+  line-height: 1.6;
+  margin-inline: 2em;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-ul {
+ul,
+li,
+p {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 a {
+  font-weight: var(--fw-extrabold);
   text-decoration: none;
 }
 
 ul {
   list-style: none;
+}
+
+img {
+  box-sizing: border-box;
+}
+
+main {
+  padding-inline: 0.5em;
+  padding-block: 0.5em;
 }
