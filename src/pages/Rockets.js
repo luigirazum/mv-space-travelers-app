@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Rocket from '../components/Rocket/Rocket';
+import './Rockets.css';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rockets.inventory);
@@ -16,9 +17,7 @@ const Rockets = () => {
     };
 
     return (
-      <article key={id} className="rocketItem">
-        <Rocket rocketData={renderRocket} />
-      </article>
+      <Rocket key={id} rocketData={renderRocket} />
     );
   });
 
