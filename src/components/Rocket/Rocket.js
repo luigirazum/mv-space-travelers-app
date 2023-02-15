@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Rocket.css';
 
 const Rocket = (props) => {
   const { rocketData: { name, description, image } } = props;
 
   return (
-    <>
-      <section className="picture">
-        <img src={image} alt={name} />
-      </section>
-      <section className="info">
+    <article className="rocketItem">
+      <div className="rocketPhoto">
+        <img className="rocketImage" src={image} alt={name} />
+      </div>
+      <div className="rocketInfo">
         <h4 className="rocketName">{name}</h4>
         <p className="rocketDescription">{description}</p>
-      </section>
-    </>
+      </div>
+    </article>
   );
 };
 

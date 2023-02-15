@@ -1,0 +1,45 @@
+.rocketItem {
+  display: flex;
+  height: 11rem;
+  gap: 1em;
+  padding: 0.5em;
+  transition: background-color 0.5s ease;
+}
+
+.rocketItem:hover {
+  background-color: var(--color-hoverRocket-hsl);
+}
+
+.rocketPhoto {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 12rem;
+  display: flex;
+  transition: transform 0.8s ease-in;
+}
+
+.rocketItem:hover .rocketPhoto {
+  transform: scale(1.05);
+}
+
+.rocketInfo {
+  flex-grow: 6;
+  flex-shrink: 0;
+  flex-basis: 12rem;
+  transition: transform 0.8s ease-in;
+}
+
+.rocketItem:hover .rocketInfo {
+  transform: scale(0.975);
+}
+
+.rocketImage {
+  width: 100%;
+  object-fit: fill;
+  padding: 0.2em;
+}
+
+.rocketName {
+  font-size: var(--fs-title);
+  margin-block-end: 0.3em;
+}
