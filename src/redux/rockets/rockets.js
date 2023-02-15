@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAction, createSlice } from '@reduxjs/toolkit';
 import asyncFetch, { GET_ROCKETS } from '../api/apiSettings';
 
 /**
@@ -6,6 +6,9 @@ import asyncFetch, { GET_ROCKETS } from '../api/apiSettings';
  */
 const PREFIX = 'spaceTravelers/rockets';
 const FETCH_ROCKETS = `${PREFIX}/FETCH_ROCKETS`;
+const RESERVE_ROCKET = `${PREFIX}/RESERVE_ROCKET`;
+
+const reserveRocket = createAction(RESERVE_ROCKET);
 
 /**
  * get the Rockets available from the API
@@ -64,12 +67,30 @@ const rocketsSlice = createSlice({
             error: message,
           };
         },
+      )
+      .addCase(
+        reserveRocket,
+        (state, action) => {
+          const { inventory } = state;
+
+          const reserved = inventory.map((rocket) => {
+            if (rocket.id !== action.payload) {
+              return rocket;
+            }
+            return { ...rocket, reserved: true };
+          });
+
+          return {
+            ...state,
+            inventory: reserved,
+          };
+        },
       );
   },
 });
 
 /** actions for fetchRockets */
-export { fetchRockets };
+export { fetchRockets, reserveRocket };
 
 /** export reducer for rockets */
 const { reducer } = rocketsSlice;
