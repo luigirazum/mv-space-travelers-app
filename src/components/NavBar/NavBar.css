@@ -1,9 +1,46 @@
+.navContainer {
+  margin-inline-start: auto;
+}
+
+.navBar {
+  display: flex;
+  margin-block-start: 0.6em;
+  height: 1.2em;
+}
+
 .navlink {
-  color: var(--color-link);
-  font-weight: bold;
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-semibold);
+  line-height: 0.8;
+  padding-inline: 1em;
+  padding-block: 0;
+  color: var(--color-navlink-hsl);
+}
+
+.navlink:hover {
+  color: var(--color-link-hsl);
+}
+
+.navlink:active {
+  color: var(--color-navTitle-hsl);
 }
 
 .navlink.active {
   color: var(--color-link-active);
   text-decoration: underline;
+  cursor: default;
+}
+
+.navItem:last-child {
+  position: relative;
+}
+
+.navItem:last-child::before {
+  position: absolute;
+  content: '|';
+  font-weight: var(--fw-bold);
+  color: var(--color-navTitle-hsl);
+  padding-block: 0;
+  top: -0.15em;
+  left: -0.3em;
 }
