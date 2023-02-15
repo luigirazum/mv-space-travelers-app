@@ -9,7 +9,7 @@ const NavBar = () => {
     .map((link) => {
       const [id, path, text, styleClass] = link.split(',');
       return (
-        <li key={id}>
+        <li key={id} className="navItem">
           <NavLink to={path} className={styleClass}>
             {text}
           </NavLink>
@@ -19,8 +19,8 @@ const NavBar = () => {
 
   return (
     <>
-      <nav>
-        <ul>
+      <nav className="navContainer">
+        <ul className="navBar">
           {links}
         </ul>
       </nav>
