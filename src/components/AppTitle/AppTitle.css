@@ -1,4 +1,21 @@
+.titleLink {
+  font-size: var(--fs-super);
+  letter-spacing: -0.75px;
+  display: flex;
+  gap: 0.35em;
+  align-items: center;
+  color: var(--color-navTitle-hsl);
+}
+
+.titleLink:hover {
+  color: var(--color-navlink-hsl);
+}
+
 .logo {
-  width: 24px;
-  height: 24px;
+  display: flex;
+  height: calc(var(--fs-super) * 1.8);
+}
+
+.titleLink:hover .logo {
+  filter: saturate(1.5);
 }

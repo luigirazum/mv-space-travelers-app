@@ -5,7 +5,7 @@ import './AppTitle.css';
 
 const AppTitle = () => (
   <>
-    <Link to="/">
+    <Link to="/" className="titleLink">
       <div className="logo">
         <img src={spaceLogo} className="logo" alt="space travelers' logo" />
       </div>
