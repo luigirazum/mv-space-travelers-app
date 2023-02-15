@@ -5,6 +5,7 @@ import './Rockets.css';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rockets.inventory);
+
   const rocketsList = rockets.map((rocket) => {
     const {
       id, name, description, images,
