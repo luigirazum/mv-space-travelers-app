@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound';
 import MyProfile from './pages/MyProfile';
 import Missions from './pages/Missions';
 import Rockets from './pages/Rockets';
+import './App.css';
 
 const App = () => (
   <BrowserRouter>
