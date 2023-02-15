@@ -24,12 +24,13 @@
   --fw-black: 900;
 
   /* font-size */
-  --fs-normal: 1rem;
+  --fs-normal: calc(1rem * 0.95);
   --fs-medium: calc(1.1 * var(--fs-normal));
   --fs-title: calc(1.35 * var(--fs-normal));
   --fs-super: calc(1.8 * var(--fs-normal));
 
   /* Colors */
+  --color-white: #fafafa;
   --color-link-active: #f66f1c;
   --color-link-active-rgb: rgb(246, 111, 28);
   --color-link-active-hsl: hsl(23, 92%, 54%);
@@ -42,6 +43,7 @@
   --color-navTitle-hsl: hsl(195, 100%, 10%);
   --color-header-hsl: hsl(0, 0%, 90%);
   --color-hoverRocket-hsl: hsl(0, 0%, 96%);
+  --color-btn-primary: hsl(210, 100%, 50%);
 
   /* borders */
   --border-navBar: 2px solid var(--color-navTitle-hsl);
@@ -53,7 +55,7 @@ body {
   font-family: var(--ff-notoSans);
   font-weight: var(--fw-regular);
   font-size: var(--fs-normal);
-  line-height: 1.6;
+  line-height: 1.4;
   margin-inline: 2em;
 }
 
@@ -87,4 +89,26 @@ img {
 main {
   padding-inline: 0.5em;
   padding-block: 0.5em;
+}
+
+.btn {
+  font-family: var(--ff-notoSans);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.4px;
+  border: transparent;
+  padding: 0.75em 1.25em;
+  border-radius: 4px;
+}
+
+.btn-rReserve {
+  color: var(--color-white);
+  background-color: var(--color-btn-primary);
+}
+
+.btn-rReserve:hover {
+  background-color: var(--color-link-active);
+}
+
+.btn-rReserve:active {
+  background-color: var(--color-navTitle-hsl);
 }
