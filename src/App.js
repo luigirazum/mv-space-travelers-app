@@ -9,7 +9,7 @@ import Rockets from './pages/Rockets';
 const App = () => (
   <BrowserRouter>
     <Header />
-    <main>
+    <main className="container">
       <Routes>
         <Route index element={<Rockets />} />
         <Route caseSensitive path="missions" element={<Missions />} />
