@@ -1,31 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import Rocket from '../components/Rocket/Rocket';
 import './Rockets.css';
 
+const selectRocketsIds = (state) => state.rockets.inventory.map((rocket) => rocket.id);
+
 const Rockets = () => {
-  const rockets = useSelector((state) => state.rockets.inventory);
+  const rocketsIds = useSelector(selectRocketsIds, shallowEqual);
 
-  const rocketsList = rockets.map((rocket) => {
-    const {
-      id, name, description, images,
-    } = rocket;
-
-    const [image] = images;
-
-    const renderRocket = {
-      id, name, description, image,
-    };
-
-    return (
-      <Rocket key={id} rocketData={renderRocket} />
-    );
-  });
+  const renderedRockets = rocketsIds.map((rocketId) => (
+    <Rocket key={rocketId} id={rocketId} />
+  ));
 
   return (
     <>
       <section className="rocketsList">
-        {rocketsList}
+        {renderedRockets}
       </section>
     </>
   );
