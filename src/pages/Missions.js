@@ -35,12 +35,12 @@ const Missions = () => {
 
     return (
       <table>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-        </tr>
         <tbody>
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
           {rows}
         </tbody>
       </table>
