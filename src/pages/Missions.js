@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkMissionsStatus, fetchMissions } from '../redux/missions/missions';
+import { fetchMissions, reserveMission, checkMissionsStatus } from '../redux/missions/missions';
 
 const Missions = () => {
   const missions = useSelector((state) => state.missions);
@@ -26,7 +26,12 @@ const Missions = () => {
               <span>Active member</span>
             </td>
             <td>
-              <button type="button">Join Mission</button>
+              <button
+                type="button"
+                onClick={() => dispatch(reserveMission(mission.id))}
+              >
+                Join Mission
+              </button>
               <button type="button">Leave Mission</button>
             </td>
           </tr>
