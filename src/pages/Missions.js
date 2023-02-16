@@ -12,19 +12,64 @@ const Missions = () => {
     }
   }, [missions.avaliable, dispatch]);
 
+  const missionsList = () => {
+    const rows = missions
+      .avaliable.map((mission) => {
+        const { id, name, description } = mission;
+
+        return (
+          <tr key={id}>
+            <td>{name}</td>
+            <td>{description}</td>
+            <td>
+              <span>Not a member</span>
+              <span>Active member</span>
+            </td>
+            <td>
+              <button type="button">Join Mission</button>
+              <button type="button">Leave Mission</button>
+            </td>
+          </tr>
+        );
+      });
+
+    return (
+      <table>
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+        <tbody>
+          {rows}
+        </tbody>
+      </table>
+    );
+  };
+
+  if (!missions.avaliable.length) {
+    return (
+      <>
+        <h2>⛔ No Missions available right now.</h2>
+        <p>Under construction 👷‍♂️</p>
+        <button
+          type="button"
+          onClick={() => dispatch(checkMissionsStatus())}
+        >
+          Check Status
+        </button>
+        <p>
+          {missions.message}
+        </p>
+      </>
+    );
+  }
+
   return (
     <>
-      <h2>⛔ No Missions available right now.</h2>
-      <p>Under construction 👷‍♂️</p>
-      <button
-        type="button"
-        onClick={() => dispatch(checkMissionsStatus())}
-      >
-        Check Status
-      </button>
-      <p>
-        {missions.message}
-      </p>
+      <div>
+        {missionsList()}
+      </div>
     </>
   );
 };
