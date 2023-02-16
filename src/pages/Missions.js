@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkMissionsStatus, fetchMissions } from '../redux/missions/missions';
+import { cancelReservedMission, fetchMissions } from '../redux/missions/missions';
 
 const Missions = () => {
   const missions = useSelector((state) => state.missions);
@@ -12,20 +12,39 @@ const Missions = () => {
     }
   }, [missions.avaliable, dispatch]);
 
+  // return (
+  //   <>
+  //     <h2>⛔ No Missions available right now.</h2>
+  //     <p>Under construction 👷‍♂️</p>
+  //     <button
+  //       type="button"
+  //       onClick={() => dispatch(checkMissionsStatus())}
+  //     >
+  //       Check Status
+  //     </button>
+  //     <p>
+  //       {missions.message}
+  //     </p>
+  //   </>
+  // );
+
   return (
-    <>
-      <h2>⛔ No Missions available right now.</h2>
-      <p>Under construction 👷‍♂️</p>
-      <button
-        type="button"
-        onClick={() => dispatch(checkMissionsStatus())}
-      >
-        Check Status
-      </button>
-      <p>
-        {missions.message}
-      </p>
-    </>
+    <ul>
+      {missions.avaliable.map((mission) => {
+        const { id, name } = mission;
+        return (
+          <li key={id}>
+            <p>{name}</p>
+            <button
+              type="button"
+              onClick={() => dispatch(cancelReservedMission(mission.id))}
+            >
+              Leave Mission
+            </button>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
