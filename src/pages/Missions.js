@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkStatus } from '../redux/missions/missions';
+import { checkMissionsStatus, fetchMissions } from '../redux/missions/missions';
 
 const Missions = () => {
-  const status = useSelector((state) => state.missions);
+  const missions = useSelector((state) => state.missions);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!missions.avaliable.length) {
+      dispatch(fetchMissions());
+    }
+  }, [missions.avaliable, dispatch]);
 
   return (
     <>
@@ -12,11 +18,13 @@ const Missions = () => {
       <p>Under construction 👷‍♂️</p>
       <button
         type="button"
-        onClick={() => dispatch(checkStatus())}
+        onClick={() => dispatch(checkMissionsStatus())}
       >
         Check Status
       </button>
-      {status}
+      <p>
+        {missions.message}
+      </p>
     </>
   );
 };
