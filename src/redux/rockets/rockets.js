@@ -8,6 +8,9 @@ const PREFIX = 'spaceTravelers/rockets';
 const FETCH_ROCKETS = `${PREFIX}/FETCH_ROCKETS`;
 const RESERVE_ROCKET = `${PREFIX}/RESERVE_ROCKET`;
 
+/**
+ * action creators for ROCKETS
+ */
 const reserveRocket = createAction(RESERVE_ROCKET);
 
 /**

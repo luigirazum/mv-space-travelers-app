@@ -14,6 +14,7 @@ const headersList = { 'Content-Type': 'application/json' };
 
 // request types
 const GET_ROCKETS = 'GET_ROCKETS';
+const GET_MISSIONS = 'GET_MISSIONS';
 
 // create the request
 const request = (request) => {
@@ -47,5 +48,5 @@ const asyncFetch = (
   },
 );
 
-export { GET_ROCKETS };
+export { GET_ROCKETS, GET_MISSIONS };
 export default asyncFetch;
