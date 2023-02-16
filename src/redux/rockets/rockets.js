@@ -77,10 +77,10 @@ const rocketsSlice = createSlice({
         reserveRocket,
         (state, action) => {
           const { inventory } = state;
-
-          const newInventory = inventory.map((rocket) => {
+          const currentInventory = [...inventory];
+          const newInventory = currentInventory.map((rocket) => {
             if (rocket.id !== action.payload) {
-              return rocket;
+              return { ...rocket };
             }
             return { ...rocket, reserved: true };
           });
@@ -95,10 +95,10 @@ const rocketsSlice = createSlice({
         cancelReservedRocket,
         (state, action) => {
           const { inventory } = state;
-
-          const newInventory = inventory.map((rocket) => {
+          const currentInventory = [...inventory];
+          const newInventory = currentInventory.map((rocket) => {
             if (rocket.id !== action.payload) {
-              return rocket;
+              return { ...rocket };
             }
             return { ...rocket, reserved: false };
           });
@@ -108,6 +108,9 @@ const rocketsSlice = createSlice({
             inventory: newInventory,
           };
         },
+      )
+      .addDefaultCase(
+        (state) => ({ ...state }),
       );
   },
 });
