@@ -7,12 +7,14 @@ import asyncFetch, { GET_MISSIONS } from '../api/apiSettings';
 const PREFIX = 'spaceTravelers/missions';
 const CHECK_MISSIONS_STATUS = `${PREFIX}/CHECK_MISSIONS_STATUS`;
 const FETCH_MISSIONS = `${PREFIX}/FETCH_MISSIONS`;
+const RESERVE_MISSION = `${PREFIX}/RESERVE_MISSION`;
 const CANCEL_RESERVED_MISSION = `${PREFIX}/CANCEL_RESERVED_MISSION`;
 
 /**
  * action creators for MISSIONS
  */
 const checkMissionsStatus = createAction(CHECK_MISSIONS_STATUS);
+const reserveMission = createAction(RESERVE_MISSION);
 const cancelReservedMission = createAction(CANCEL_RESERVED_MISSION);
 
 /**
@@ -103,12 +105,32 @@ const missionsSlice = createSlice({
             message,
           };
         },
+      )
+      .addCase(
+        reserveMission,
+        (state, action) => {
+          const { avaliable } = state;
+
+          const newMissions = avaliable.map((mission) => {
+            if (mission.id !== action.payload) {
+              return mission;
+            }
+            return { ...mission, reserved: true };
+          });
+
+          return {
+            ...state,
+            avaliable: newMissions,
+          };
+        },
       );
   },
 });
 
 /** actions available for Missions */
-export { fetchMissions, checkMissionsStatus, cancelReservedMission };
+export {
+  fetchMissions, checkMissionsStatus, reserveMission, cancelReservedMission,
+};
 
 /** export reducer for missions */
 const { reducer } = missionsSlice;
