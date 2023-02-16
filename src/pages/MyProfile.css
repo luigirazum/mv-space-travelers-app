@@ -1,0 +1,37 @@
+.myProfile {
+  width: 55rem;
+  margin-block: 1em;
+  margin-inline: auto;
+}
+
+.rckTitle {
+  font-size: var(--fs-super);
+}
+
+.myRockets {
+  width: 50%;
+  margin-block: 0.5em;
+  border: var(--border-profile);
+  border-radius: 5px;
+}
+
+.myRocketItem {
+  border-bottom: var(--border-profile);
+  padding: 1em 2em;
+  transition: transform 0.2s ease-out, background-color 0.25s ease, border 0.2s ease-out;
+}
+
+.myRocketItem:last-child {
+  border-bottom: none;
+}
+
+.myRocketItem:hover {
+  background-color: var(--color-hoverRocket-hsl);
+  transform: scale(1.05);
+  border: var(--border-profile-hover);
+  border-radius: 5px;
+}
+
+.myRocketName {
+  font-size: var(--fs-item-list);
+}

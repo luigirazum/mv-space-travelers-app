@@ -28,6 +28,7 @@
   --fs-badge: calc(var(--fs-base) * 0.7);
   --fs-normal: calc(var(--fs-base) * 0.95);
   --fs-medium: calc(1.05 * var(--fs-normal));
+  --fs-item-list: calc(1.2 * var(--fs-medium));
   --fs-title: calc(1.6 * var(--fs-normal));
   --fs-super: calc(1.8 * var(--fs-normal));
 
@@ -52,7 +53,8 @@
   /* borders */
   --border-navBar: 2px solid var(--color-navTitle-hsl);
   --border-header: 2px solid var(--color-header-hsl);
-  --border-badge: 1px solid var(--color-btn-primary);
+  --border-profile: 1px solid var(--color-header-hsl);
+  --border-profile-hover: 1px solid var(--color-link-active);
 }
 
 /* Resets */
