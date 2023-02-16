@@ -7,11 +7,13 @@ import asyncFetch, { GET_ROCKETS } from '../api/apiSettings';
 const PREFIX = 'spaceTravelers/rockets';
 const FETCH_ROCKETS = `${PREFIX}/FETCH_ROCKETS`;
 const RESERVE_ROCKET = `${PREFIX}/RESERVE_ROCKET`;
+const CANCEL_RESERVED_ROCKET = `${PREFIX}/CANCEL_RESERVED_ROCKET`;
 
 /**
  * action creators for ROCKETS
  */
 const reserveRocket = createAction(RESERVE_ROCKET);
+const cancelReservedRocket = createAction(CANCEL_RESERVED_ROCKET);
 
 /**
  * get the Rockets available from the API
@@ -76,7 +78,7 @@ const rocketsSlice = createSlice({
         (state, action) => {
           const { inventory } = state;
 
-          const reserved = inventory.map((rocket) => {
+          const newInventory = inventory.map((rocket) => {
             if (rocket.id !== action.payload) {
               return rocket;
             }
@@ -85,7 +87,25 @@ const rocketsSlice = createSlice({
 
           return {
             ...state,
-            inventory: reserved,
+            inventory: newInventory,
+          };
+        },
+      )
+      .addCase(
+        cancelReservedRocket,
+        (state, action) => {
+          const { inventory } = state;
+
+          const newInventory = inventory.map((rocket) => {
+            if (rocket.id !== action.payload) {
+              return rocket;
+            }
+            return { ...rocket, reserved: false };
+          });
+
+          return {
+            ...state,
+            inventory: newInventory,
           };
         },
       );
@@ -93,7 +113,7 @@ const rocketsSlice = createSlice({
 });
 
 /** actions for fetchRockets */
-export { fetchRockets, reserveRocket };
+export { fetchRockets, reserveRocket, cancelReservedRocket };
 
 /** export reducer for rockets */
 const { reducer } = rocketsSlice;

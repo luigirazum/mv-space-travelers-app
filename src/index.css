@@ -44,6 +44,7 @@
   --color-header-hsl: hsl(0, 0%, 90%);
   --color-hoverRocket-hsl: hsl(0, 0%, 96%);
   --color-btn-primary: hsl(210, 100%, 50%);
+  --color-btn-cancel: hsl(4, 85%, 45%);
 
   /* borders */
   --border-navBar: 2px solid var(--color-navTitle-hsl);
@@ -96,12 +97,17 @@ main {
   font-weight: var(--fw-semibold);
   letter-spacing: 0.4px;
   border: transparent;
-  padding: 0.75em 1.25em;
+  padding: 0.75em 1.655em;
   border-radius: 4px;
+  color: var(--color-white);
+  margin-inline-end: 1.5em;
+}
+
+.btn:last-child {
+  margin-inline-end: 0;
 }
 
 .btn-rReserve {
-  color: var(--color-white);
   background-color: var(--color-btn-primary);
 }
 
@@ -109,6 +115,16 @@ main {
   background-color: var(--color-link-active);
 }
 
-.btn-rReserve:active {
+.btn-cReserve {
+  background-color: var(--color-link-hsl);
+  padding: 0.75em 1.05em;
+}
+
+.btn-cReserve:hover {
+  background-color: var(--color-btn-cancel);
+}
+
+.btn-rReserve:active,
+.btn-cReserve:active {
   background-color: var(--color-navTitle-hsl);
 }
