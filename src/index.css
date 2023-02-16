@@ -24,9 +24,11 @@
   --fw-black: 900;
 
   /* font-size */
-  --fs-normal: calc(1rem * 0.95);
-  --fs-medium: calc(1.1 * var(--fs-normal));
-  --fs-title: calc(1.35 * var(--fs-normal));
+  --fs-base: 1rem;
+  --fs-badge: calc(var(--fs-base) * 0.7);
+  --fs-normal: calc(var(--fs-base) * 0.95);
+  --fs-medium: calc(1.05 * var(--fs-normal));
+  --fs-title: calc(1.6 * var(--fs-normal));
   --fs-super: calc(1.8 * var(--fs-normal));
 
   /* Colors */
@@ -45,10 +47,12 @@
   --color-hoverRocket-hsl: hsl(0, 0%, 96%);
   --color-btn-primary: hsl(210, 100%, 50%);
   --color-btn-cancel: hsl(4, 85%, 45%);
+  --color-badge-reserved: hsl(162, 85%, 46%);
 
   /* borders */
   --border-navBar: 2px solid var(--color-navTitle-hsl);
   --border-header: 2px solid var(--color-header-hsl);
+  --border-badge: 1px solid var(--color-btn-primary);
 }
 
 /* Resets */
@@ -100,11 +104,6 @@ main {
   padding: 0.75em 1.655em;
   border-radius: 4px;
   color: var(--color-white);
-  margin-inline-end: 1.5em;
-}
-
-.btn:last-child {
-  margin-inline-end: 0;
 }
 
 .btn-rReserve {
@@ -127,4 +126,19 @@ main {
 .btn-rReserve:active,
 .btn-cReserve:active {
   background-color: var(--color-navTitle-hsl);
+}
+
+.badge {
+  border-radius: 5px;
+  padding: 0.2em 0.75em;
+}
+
+.rktBadge {
+  font-size: var(--fs-badge);
+  font-weight: var(--fw-regular);
+}
+
+.resBadge {
+  color: var(--color-navTitle-hsl);
+  background-color: var(--color-badge-reserved);
 }
