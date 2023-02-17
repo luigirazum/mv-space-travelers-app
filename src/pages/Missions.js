@@ -1,65 +1,32 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import {
-  fetchMissions, reserveMission, cancelReservedMission, checkMissionsStatus,
+  fetchMissions, checkMissionsStatus,
 } from '../redux/missions/missions';
+import Mission from '../components/Mission/Mission';
+import './Missions.css';
+
+const selectMissionsByIds = (state) => state
+  .missions.avaliable.map((mission) => mission.id);
+
+const selectStatusMessage = (state) => state.missions.message || 'No message';
 
 const Missions = () => {
-  const missions = useSelector((state) => state.missions);
+  const statusMessage = useSelector(selectStatusMessage, shallowEqual);
+  const missionsIds = useSelector(selectMissionsByIds, shallowEqual);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!missions.avaliable.length) {
+    if (!missionsIds.length) {
       dispatch(fetchMissions());
     }
-  }, [missions.avaliable, dispatch]);
+  }, [missionsIds, dispatch]);
 
-  const missionsList = () => {
-    const rows = missions
-      .avaliable.map((mission) => {
-        const { id, name, description } = mission;
+  const renderedMissions = missionsIds.map((missionId) => (
+    <Mission key={missionId} id={missionId} />
+  ));
 
-        return (
-          <tr key={id}>
-            <td>{name}</td>
-            <td>{description}</td>
-            <td>
-              <span>Not a member</span>
-              <span>Active member</span>
-            </td>
-            <td>
-              <button
-                type="button"
-                onClick={() => dispatch(reserveMission(mission.id))}
-              >
-                Join Mission
-              </button>
-              <button
-                type="button"
-                onClick={() => dispatch(cancelReservedMission(mission.id))}
-              >
-                Leave Mission
-              </button>
-            </td>
-          </tr>
-        );
-      });
-
-    return (
-      <table>
-        <tbody>
-          <tr>
-            <th>Mission</th>
-            <th>Description</th>
-            <th>Status</th>
-          </tr>
-          {rows}
-        </tbody>
-      </table>
-    );
-  };
-
-  if (!missions.avaliable.length) {
+  if (!missionsIds.length) {
     return (
       <>
         <h2>⛔ No Missions available right now.</h2>
@@ -71,7 +38,7 @@ const Missions = () => {
           Check Status
         </button>
         <p>
-          {missions.message}
+          {statusMessage}
         </p>
       </>
     );
@@ -79,9 +46,20 @@ const Missions = () => {
 
   return (
     <>
-      <div>
-        {missionsList()}
-      </div>
+      <section className="missionsTable">
+        <header className="missionsHeader">
+          <div className="headerName">
+            <h3>Mission Name</h3>
+          </div>
+          <div className="headerDescription">
+            <h3>Description</h3>
+          </div>
+          <div className="headerStatus">
+            <h3>Status</h3>
+          </div>
+        </header>
+        {renderedMissions}
+      </section>
     </>
   );
 };
