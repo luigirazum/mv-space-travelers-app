@@ -1,37 +1,52 @@
 .myProfile {
-  width: 55rem;
   margin-block: 1em;
   margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5em;
+
+  --profile-basis: 15rem;
 }
 
-.rckTitle {
+.mySection {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: var(--profile-basis);
+}
+
+.sectionTitle {
   font-size: var(--fs-super);
+  color: var(--color-btn-primary);
 }
 
-.myRockets {
-  width: 50%;
+.myList {
   margin-block: 0.5em;
   border: var(--border-profile);
   border-radius: 5px;
 }
 
-.myRocketItem {
+.myListItem {
   border-bottom: var(--border-profile);
   padding: 1em 2em;
   transition: transform 0.2s ease-out, background-color 0.25s ease, border 0.2s ease-out;
 }
 
-.myRocketItem:last-child {
+.myListItem:last-child {
   border-bottom: none;
 }
 
-.myRocketItem:hover {
+.myListItem:hover {
   background-color: var(--color-hoverRocket-hsl);
   transform: scale(1.05);
   border: var(--border-profile-hover);
   border-radius: 5px;
 }
 
-.myRocketName {
+.myItemName {
   font-size: var(--fs-item-list);
+}
+
+.myListItem:hover .myItemName {
+  font-weight: var(--fw-bold);
+  color: var(--color-link-active);
 }
