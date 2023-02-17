@@ -25,6 +25,7 @@
 
   /* font-size */
   --fs-base: 1rem;
+  --fs-more-less: calc(var(--fs-base) * 0.85);
   --fs-badge: calc(var(--fs-base) * 0.7);
   --fs-normal: calc(var(--fs-base) * 0.95);
   --fs-medium: calc(1.05 * var(--fs-normal));
@@ -39,22 +40,28 @@
   --color-link-active-hsl: hsl(23, 92%, 54%);
   --color-link: #1d1d1d;
   --color-link-rgb: rgb(61, 61, 61);
+  --color-badge-not: hsl(0, 0%, 45%);
   --color-link-hsl: hsl(0, 0%, 24%);
   --color-navlink: #02bab7;
   --color-navlink-rgb: rgb(2, 186, 183);
   --color-navlink-hsl: hsl(179, 100%, 30%);
+  --color-missions-header: rgba(0, 153, 150, 0.5);
+  --color-missions-hover: rgba(0, 153, 150, 0.15);
   --color-navTitle-hsl: hsl(195, 100%, 10%);
   --color-header-hsl: hsl(0, 0%, 90%);
   --color-hoverRocket-hsl: hsl(0, 0%, 96%);
   --color-btn-primary: hsl(210, 100%, 50%);
   --color-btn-cancel: hsl(4, 85%, 45%);
   --color-badge-reserved: hsl(162, 85%, 46%);
+  --color-btn-join: hsl(162, 85%, 25%);
 
   /* borders */
+  --border-clear: 1px solid transparent;
   --border-navBar: 2px solid var(--color-navTitle-hsl);
   --border-header: 2px solid var(--color-header-hsl);
   --border-profile: 1px solid var(--color-header-hsl);
   --border-profile-hover: 1px solid var(--color-link-active);
+  --border-missions-badges: 1px solid var(--color-navTitle-hsl);
 }
 
 /* Resets */
@@ -102,7 +109,7 @@ main {
   font-family: var(--ff-notoSans);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.4px;
-  border: transparent;
+  border: var(--border-clear);
   padding: 0.75em 1.655em;
   border-radius: 4px;
   color: var(--color-white);
@@ -118,16 +125,39 @@ main {
 
 .btn-cReserve {
   background-color: var(--color-link-hsl);
-  padding: 0.75em 1.05em;
+  padding: 0.75em 1.0488em;
 }
 
-.btn-cReserve:hover {
+.btn-cReserve:hover,
+.btn-mLeave {
   background-color: var(--color-btn-cancel);
 }
 
+.btn-mLeave {
+  padding: 0.75em 1.143em;
+}
+
+.btn-mLeave:hover {
+  background-color: var(--color-badge-not);
+  border-color: var(--color-btn-cancel);
+}
+
+.btn-mJoin {
+  color: var(--color-white);
+  background-color: var(--color-btn-join);
+}
+
+.btn-mJoin:hover {
+  background-color: var(--color-navlink);
+  border-color: var(--color-btn-join);
+}
+
 .btn-rReserve:active,
-.btn-cReserve:active {
+.btn-cReserve:active,
+.btn-mJoin:active,
+.btn-mLeave:active {
   background-color: var(--color-navTitle-hsl);
+  border: var(--border-clear);
 }
 
 .badge {
@@ -135,7 +165,8 @@ main {
   padding: 0.2em 0.75em;
 }
 
-.rktBadge {
+.rktBadge,
+.misBadge {
   font-size: var(--fs-badge);
   font-weight: var(--fw-regular);
 }
@@ -143,4 +174,20 @@ main {
 .resBadge {
   color: var(--color-navTitle-hsl);
   background-color: var(--color-badge-reserved);
+}
+
+.misBadge {
+  display: inline-block;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-badge-not);
+  padding-block: 0.4em;
+  font-weight: var(--fw-bold);
+  border: var(--border-clear);
+}
+
+.misActive {
+  background-color: var(--color-navlink);
+  color: var(--color-navTitle-hsl);
+  border: var(--border-missions-badges);
 }
