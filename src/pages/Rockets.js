@@ -3,7 +3,8 @@ import { shallowEqual, useSelector } from 'react-redux';
 import Rocket from '../components/Rocket/Rocket';
 import './Rockets.css';
 
-const selectRocketsIds = (state) => state.rockets.inventory.map((rocket) => rocket.id);
+const selectRocketsIds = (state) => state
+  .rockets.inventory.map((rocket) => rocket.id);
 
 const Rockets = () => {
   const rocketsIds = useSelector(selectRocketsIds, shallowEqual);
