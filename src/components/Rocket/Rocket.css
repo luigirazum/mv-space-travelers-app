@@ -1,5 +1,8 @@
 .rocketItem {
   display: flex;
+
+  --rockets-base: 12rem;
+
   height: 11rem;
   gap: 1em;
   padding: 0.5em;
@@ -13,7 +16,7 @@
 .rocketPhoto {
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 12rem;
+  flex-basis: var(--rockets-base);
   display: flex;
   transition: transform 0.15s ease-in;
 }
@@ -25,7 +28,7 @@
 .rocketInfo {
   flex-grow: 6;
   flex-shrink: 0;
-  flex-basis: 12rem;
+  flex-basis: var(--rockets-base);
   transition: transform 0.15s ease-in;
 }
 
