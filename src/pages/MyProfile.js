@@ -49,15 +49,35 @@ const MyProfile = () => {
       <div className="myProfile">
         <section className="mySection">
           <h2 className="sectionTitle">My Rockets</h2>
-          <ul className="myList">
-            {myReservedRockets}
-          </ul>
+          { myReservedRockets.length
+            ? (
+              <ul className="myList">
+                {myReservedRockets}
+              </ul>
+            )
+            : (
+              <p className="noItems">
+                There are no Rockets that have been
+                <span className="badge rktBadge resBadge">Reserved</span>
+                by you.
+              </p>
+            )}
         </section>
         <section className="mySection">
           <h2 className="sectionTitle">My Missions</h2>
-          <ul className="myList">
-            {myJoinedMissions}
-          </ul>
+          { myJoinedMissions.length
+            ? (
+              <ul className="myList">
+                {myJoinedMissions}
+              </ul>
+            )
+            : (
+              <p className="noItems">
+                You haven&apos;t yet become an
+                <span className="badge misBadge misActive">Active Member</span>
+                of any Missions.
+              </p>
+            )}
         </section>
       </div>
     </>
