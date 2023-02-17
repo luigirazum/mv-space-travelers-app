@@ -1,5 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { leaveMission } from '../redux/missions/missions';
+import { cancelReservedRocket } from '../redux/rockets/rockets';
 import './MyProfile.css';
 
 const selectReservedRockets = (state) => {
@@ -19,6 +21,15 @@ const selectJoinedMissions = (state) => {
 const MyProfile = () => {
   const myRockets = useSelector(selectReservedRockets);
   const myMissions = useSelector(selectJoinedMissions);
+  const dispatch = useDispatch();
+
+  const handleCancelReservedRocket = (id) => {
+    dispatch(cancelReservedRocket(id));
+  };
+
+  const handleLeaveMission = (id) => {
+    dispatch(leaveMission(id));
+  };
 
   const myReservedRockets = myRockets.map((rocket) => {
     const { id, name } = rocket;
@@ -28,6 +39,13 @@ const MyProfile = () => {
         <p className="myItemName">
           {name}
         </p>
+        <button
+          type="button"
+          className="btn btn-cReserve"
+          onClick={() => handleCancelReservedRocket(id)}
+        >
+          Cancel Reservation
+        </button>
       </li>
     );
   });
@@ -40,6 +58,13 @@ const MyProfile = () => {
         <p className="myItemName">
           {name}
         </p>
+        <button
+          type="button"
+          className="btn btn-mLeave"
+          onClick={() => handleLeaveMission(id)}
+        >
+          Leave Mission
+        </button>
       </li>
     );
   });
