@@ -9,15 +9,35 @@ const selectReservedRockets = (state) => {
   return reservedRockets;
 };
 
-const MyProfile = () => {
-  const rockets = useSelector(selectReservedRockets);
+const selectJoinedMissions = (state) => {
+  const { missions: { avaliable: missions } } = state;
+  const joinedMissions = missions.filter((mission) => mission.joined);
 
-  const myReservedRockets = rockets.map((rocket) => {
+  return joinedMissions;
+};
+
+const MyProfile = () => {
+  const myRockets = useSelector(selectReservedRockets);
+  const myMissions = useSelector(selectJoinedMissions);
+
+  const myReservedRockets = myRockets.map((rocket) => {
     const { id, name } = rocket;
 
     return (
-      <li key={id} className="myRocketItem">
-        <p className="myRocketName">
+      <li key={id} className="myListItem">
+        <p className="myItemName">
+          {name}
+        </p>
+      </li>
+    );
+  });
+
+  const myJoinedMissions = myMissions.map((mission) => {
+    const { id, name } = mission;
+
+    return (
+      <li key={id} className="myListItem">
+        <p className="myItemName">
           {name}
         </p>
       </li>
@@ -27,10 +47,18 @@ const MyProfile = () => {
   return (
     <>
       <div className="myProfile">
-        <h2 className="rckTitle">My Rockets</h2>
-        <ul className="myRockets">
-          {myReservedRockets}
-        </ul>
+        <section className="mySection">
+          <h2 className="sectionTitle">My Rockets</h2>
+          <ul className="myList">
+            {myReservedRockets}
+          </ul>
+        </section>
+        <section className="mySection">
+          <h2 className="sectionTitle">My Missions</h2>
+          <ul className="myList">
+            {myJoinedMissions}
+          </ul>
+        </section>
       </div>
     </>
   );
