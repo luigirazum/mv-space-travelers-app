@@ -46,7 +46,7 @@ const MyProfile = () => {
           rel="noreferrer noopener"
           className="moreInfo"
         >
-          more info
+          read more
           <span className="wikiLogo">
             <img src={wikiLogo} alt="wikipedia logo" />
           </span>
@@ -76,7 +76,7 @@ const MyProfile = () => {
           rel="noreferrer noopener"
           className="moreInfo"
         >
-          more info
+          read more
           <span className="wikiLogo">
             <img src={wikiLogo} alt="wikipedia logo" />
           </span>
