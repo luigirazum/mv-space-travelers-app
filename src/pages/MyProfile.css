@@ -47,7 +47,7 @@
   align-items: center;
   justify-content: space-between;
 
-  --listItem-base: 7.75rem;
+  --listItem-base: 6.75rem;
 
   transition: transform 0.2s ease-out, background-color 0.25s ease, border 0.2s ease-out;
 }
@@ -96,7 +96,7 @@
   padding: 0.575em 0.75em;
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: var(--listItem-base);
+  flex-basis: calc(var(--listItem-base) * 1.125);
 }
 
 .myListItem:last-child {
@@ -112,7 +112,7 @@
 
 .myItemName {
   font-size: var(--fs-item-list);
-  flex-grow: 12;
+  flex-grow: 5;
   flex-shrink: 0;
   flex-basis: var(--listItem-base);
 }
