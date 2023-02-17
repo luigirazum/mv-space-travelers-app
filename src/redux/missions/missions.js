@@ -7,15 +7,17 @@ import asyncFetch, { GET_MISSIONS } from '../api/apiSettings';
 const PREFIX = 'spaceTravelers/missions';
 const CHECK_MISSIONS_STATUS = `${PREFIX}/CHECK_MISSIONS_STATUS`;
 const FETCH_MISSIONS = `${PREFIX}/FETCH_MISSIONS`;
-const RESERVE_MISSION = `${PREFIX}/RESERVE_MISSION`;
-const CANCEL_RESERVED_MISSION = `${PREFIX}/CANCEL_RESERVED_MISSION`;
+const JOIN_MISSION = `${PREFIX}/JOIN_MISSION`;
+const LEAVE_MISSION = `${PREFIX}/LEAVE_MISSION`;
+const TOGGLE_SHOW_MORE_MISSION = `${PREFIX}/TOGGLE_SHOW_MORE_MISSION`;
 
 /**
  * action creators for MISSIONS
  */
 const checkMissionsStatus = createAction(CHECK_MISSIONS_STATUS);
-const reserveMission = createAction(RESERVE_MISSION);
-const cancelReservedMission = createAction(CANCEL_RESERVED_MISSION);
+const joinMission = createAction(JOIN_MISSION);
+const leaveMission = createAction(LEAVE_MISSION);
+const toggleShowMoreMission = createAction(TOGGLE_SHOW_MORE_MISSION);
 
 /**
  * get the Missions available from the API
@@ -54,7 +56,7 @@ const missionsSlice = createSlice({
               mission_id: id, mission_name: name, description,
             } = mission;
             return {
-              id, name, description,
+              id, name, description, showMore: true,
             };
           });
           return {
@@ -76,7 +78,25 @@ const missionsSlice = createSlice({
         },
       )
       .addCase(
-        cancelReservedMission,
+        joinMission,
+        (state, action) => {
+          const { avaliable } = state;
+
+          const newMissions = avaliable.map((mission) => {
+            if (mission.id !== action.payload) {
+              return { ...mission };
+            }
+            return { ...mission, joined: true };
+          });
+
+          return {
+            ...state,
+            avaliable: newMissions,
+          };
+        },
+      )
+      .addCase(
+        leaveMission,
         (state, action) => {
           const { avaliable } = state;
 
@@ -84,7 +104,25 @@ const missionsSlice = createSlice({
             if (mission.id !== action.payload) {
               return mission;
             }
-            return { ...mission, reserved: false };
+            return { ...mission, joined: false };
+          });
+
+          return {
+            ...state,
+            avaliable: newMissions,
+          };
+        },
+      )
+      .addCase(
+        toggleShowMoreMission,
+        (state, action) => {
+          const { avaliable } = state;
+
+          const newMissions = avaliable.map((mission) => {
+            if (mission.id !== action.payload) {
+              return mission;
+            }
+            return { ...mission, showMore: !mission.showMore };
           });
 
           return {
@@ -106,30 +144,16 @@ const missionsSlice = createSlice({
           };
         },
       )
-      .addCase(
-        reserveMission,
-        (state, action) => {
-          const { avaliable } = state;
-
-          const newMissions = avaliable.map((mission) => {
-            if (mission.id !== action.payload) {
-              return mission;
-            }
-            return { ...mission, reserved: true };
-          });
-
-          return {
-            ...state,
-            avaliable: newMissions,
-          };
-        },
+      .addDefaultCase(
+        (state) => ({ ...state }),
       );
   },
 });
 
 /** actions available for Missions */
 export {
-  fetchMissions, checkMissionsStatus, reserveMission, cancelReservedMission,
+  fetchMissions, checkMissionsStatus,
+  joinMission, leaveMission, toggleShowMoreMission,
 };
 
 /** export reducer for missions */
