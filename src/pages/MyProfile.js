@@ -33,13 +33,24 @@ const MyProfile = () => {
   };
 
   const myReservedRockets = myRockets.map((rocket) => {
-    const { id, name } = rocket;
+    const { id, name, wikipedia } = rocket;
 
     return (
       <li key={id} className="myListItem">
         <p className="myItemName">
           {name}
         </p>
+        <a
+          href={wikipedia}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="moreInfo"
+        >
+          more info
+          <span className="wikiLogo">
+            <img src={wikiLogo} alt="wikipedia logo" />
+          </span>
+        </a>
         <button
           type="button"
           className="btn btn-cReserve"
