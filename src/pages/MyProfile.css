@@ -42,7 +42,9 @@
   padding: 0.5em 1.25em;
   display: flex;
   align-items: center;
+
   --listItem-base: 7.75rem;
+
   transition: transform 0.2s ease-out, background-color 0.25s ease, border 0.2s ease-out;
 }
 
