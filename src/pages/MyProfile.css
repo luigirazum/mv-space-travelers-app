@@ -19,6 +19,18 @@
   color: var(--color-btn-primary);
 }
 
+.noItems {
+  font-size: var(--fs-item-list);
+  font-weight: var(--fw-bold);
+  color: var(--color-btn-cancel);
+  padding-inline-start: 1em;
+  padding-block-start: 0.5em;
+}
+
+.noItems span {
+  margin-inline: 0.5em;
+}
+
 .myList {
   margin-block: 0.5em;
   border: var(--border-profile);
