@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { leaveMission } from '../redux/missions/missions';
 import { cancelReservedRocket } from '../redux/rockets/rockets';
+import wikiLogo from '../assets/imgs/logo/wikipedia_logo.png';
 import './MyProfile.css';
 
 const selectReservedRockets = (state) => {
@@ -32,13 +33,24 @@ const MyProfile = () => {
   };
 
   const myReservedRockets = myRockets.map((rocket) => {
-    const { id, name } = rocket;
+    const { id, name, wikipedia } = rocket;
 
     return (
       <li key={id} className="myListItem">
         <p className="myItemName">
           {name}
         </p>
+        <a
+          href={wikipedia}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="moreInfo"
+        >
+          read more
+          <span className="wikiLogo">
+            <img src={wikiLogo} alt="wikipedia logo" />
+          </span>
+        </a>
         <button
           type="button"
           className="btn btn-cReserve"
@@ -51,13 +63,24 @@ const MyProfile = () => {
   });
 
   const myJoinedMissions = myMissions.map((mission) => {
-    const { id, name } = mission;
+    const { id, name, wikipedia } = mission;
 
     return (
       <li key={id} className="myListItem">
         <p className="myItemName">
           {name}
         </p>
+        <a
+          href={wikipedia}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="moreInfo"
+        >
+          read more
+          <span className="wikiLogo">
+            <img src={wikiLogo} alt="wikipedia logo" />
+          </span>
+        </a>
         <button
           type="button"
           className="btn btn-mLeave"

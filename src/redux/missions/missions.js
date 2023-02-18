@@ -53,10 +53,13 @@ const missionsSlice = createSlice({
           const { payload } = action;
           const selectData = payload.map((mission) => {
             const {
-              mission_id: id, mission_name: name, description,
+              mission_id: id,
+              mission_name: name,
+              description,
+              wikipedia,
             } = mission;
             return {
-              id, name, description, showMore: true,
+              id, name, description, wikipedia, showMore: true,
             };
           });
           return {

@@ -49,10 +49,11 @@ const rocketsSlice = createSlice({
           const { payload } = action;
           const selectData = payload.map((rocket) => {
             const {
-              id, name, description, flickr_images: images,
+              id, name, description,
+              flickr_images: images, wikipedia,
             } = rocket;
             return {
-              id, name, description, images,
+              id, name, description, images, wikipedia,
             };
           });
           return {
