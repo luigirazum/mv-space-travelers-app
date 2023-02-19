@@ -1,0 +1,123 @@
+.myProfile {
+  margin-block: 1em;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5em;
+
+  --profile-basis: 15rem;
+}
+
+.mySection {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: var(--profile-basis);
+}
+
+.sectionTitle {
+  font-size: var(--fs-super);
+  color: var(--color-btn-primary);
+}
+
+.noItems {
+  font-size: var(--fs-item-list);
+  font-weight: var(--fw-bold);
+  color: var(--color-btn-cancel);
+  padding-inline-start: 1em;
+  padding-block-start: 0.5em;
+}
+
+.noItems span {
+  margin-inline: 0.5em;
+}
+
+.myList {
+  margin-block: 0.5em;
+  border: var(--border-profile);
+  border-radius: 5px;
+}
+
+.myListItem {
+  border-bottom: var(--border-profile);
+  padding-block: 0.5em;
+  padding-inline: 1.25em 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  align-items: center;
+  justify-content: space-between;
+
+  --listItem-base: 6.75rem;
+
+  transition: transform 0.2s ease-out, background-color 0.25s ease, border 0.2s ease-out;
+}
+
+.moreInfo {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(var(--listItem-base) * 0.725);
+  display: flex;
+  font-size: var(--fs-badge);
+  font-weight: var(--fw-regular);
+  justify-content: space-between;
+  padding-inline-start: 0.75em;
+  align-items: center;
+  background-color: var(--color-badge-not);
+  color: var(--color-white);
+  border-radius: 1000px;
+  transition: transform 0.2s ease-in;
+}
+
+.moreInfo:hover {
+  background-color: var(--color-btn-primary);
+  color: var(--color-navTitle-hsl);
+}
+
+.moreInfo img {
+  transition: transform 0.3s ease;
+}
+
+.moreInfo:hover img {
+  transform: scale(1.5);
+}
+
+.wikiLogo {
+  display: flex;
+  align-content: center;
+  height: 1.5rem;
+  padding: 0.25em;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+
+.myListItem .btn {
+  font-size: var(--fs-badge);
+  margin-inline-start: auto;
+  padding: 0.575em 0.75em;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(var(--listItem-base) * 1.125);
+}
+
+.myListItem:last-child {
+  border-bottom: none;
+}
+
+.myListItem:hover {
+  background-color: var(--color-hoverRocket-hsl);
+  transform: scale(1.05);
+  border: var(--border-profile-hover);
+  border-radius: 5px;
+}
+
+.myItemName {
+  font-size: var(--fs-item-list);
+  flex-grow: 5;
+  flex-shrink: 0;
+  flex-basis: var(--listItem-base);
+}
+
+.myListItem:hover .myItemName {
+  font-weight: var(--fw-bold);
+  color: var(--color-link-active);
+}
