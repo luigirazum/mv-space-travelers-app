@@ -1,7 +1,0 @@
-.spaceHeader {
-  display: flex;
-  align-items: center;
-  padding-inline: 1em;
-  padding-block: 1em 1.1em;
-  border-block-end: var(--border-header);
-}
