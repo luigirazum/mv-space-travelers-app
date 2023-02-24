@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/mv-space-travelers-app/static/css/main.f3a501ea.css",
+    "main.js": "/mv-space-travelers-app/static/js/main.0101c34a.js",
+    "static/js/787.b8bbd092.chunk.js": "/mv-space-travelers-app/static/js/787.b8bbd092.chunk.js",
+    "static/media/wikipedia_logo.png": "/mv-space-travelers-app/static/media/wikipedia_logo.a268c76b9125cf0c0f5e.png",
+    "static/media/logo_planet.png": "/mv-space-travelers-app/static/media/logo_planet.27109cd3d329612a6ec3.png",
+    "index.html": "/mv-space-travelers-app/index.html",
+    "main.f3a501ea.css.map": "/mv-space-travelers-app/static/css/main.f3a501ea.css.map",
+    "main.0101c34a.js.map": "/mv-space-travelers-app/static/js/main.0101c34a.js.map",
+    "787.b8bbd092.chunk.js.map": "/mv-space-travelers-app/static/js/787.b8bbd092.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3a501ea.css",
+    "static/js/main.0101c34a.js"
+  ]
+}
